@@ -1,0 +1,55 @@
+<div class="col-md-10">
+  <div class="row">
+    <div class="panel panel-default">
+
+      <div class="container">
+
+        <hgroup class="mb20">
+          <h1>Search Results</h1>
+          <h2 class="lead">
+            <strong class="text-danger">
+              <%= @users.size %>
+            </strong> <%= "result".pluralize(@users.size) %> were found for the search
+          </h2>
+        </hgroup>
+
+        <section class="col-xs-12 col-sm-6 col-md-12">
+          <% @users.each do |user| %>
+            <article class="search-result row">
+              <div class="col-xs-12 col-sm-12 col-md-3">
+                <%= link_to(image_tag(user.avatar, size: "245x137"), user_path(user), {class: "thumbnail"}) %>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-2">
+                <ul class="meta-search">
+                  <li><i class="glyphicon glyphicon-calendar"></i> <span><%= user.age ? user.age : 0 %> Years</span></li>
+                  <li><i class="glyphicon glyphicon-envelope"></i> <span><%= user.posts.size %> Posts</span></li>
+                  <li><i class="glyphicon glyphicon-user"></i> <span><%= user.all_friends.size %> Followers</span></li>
+                </ul>
+              </div>
+              <div class="col-xs-9 col-sm-9 col-md-4 excerpet">
+                <h3>
+                  <%= link_to user.full_name, user_path(user) %>
+                </h3>
+                <p>
+                  <%= user.posts.last.message %>
+                </p>
+                <!-- <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span> -->
+                <div class="plus">
+                  <%= form_tag toggle_friendship_user_path(current_user), method: :post  do %>
+                    <input type="hidden" name="friend_id" <%= "value=#{user.id}" %> >
+                    <% if(current_user.is_friend?(user)) %>
+                      <%= submit_tag "Following", class: "btn btn-primary", id: "follow_button" %>
+                    <% else %>
+                      <%= submit_tag "Not Following", class: "btn btn-primary", id: "follow_button" %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <span class="clearfix borda"></span>
+            </article>
+          <% end %>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

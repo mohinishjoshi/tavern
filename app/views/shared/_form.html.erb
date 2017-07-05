@@ -1,0 +1,39 @@
+<%= simple_form_for post, html: { multipart: true } do |f| %>
+  <% if post.errors.any? %>
+    <div id="errors">
+      <%= pluralize(post.errors.count, "error") %>
+      prevented this post from saving
+      <ul>
+        <% post.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.input :message, as: :text, input_html: { class: 'form-control', rows: 3, cols: 10}, label: false, placeholder: "Say something...", id: "message" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :picture, class: "btn btn-primary", id: "upload", label: false %>
+    <button onclick="upload_image();" class="btn btn-primary">Upload Image</button>
+    <%= f.button :submit, "Spread the word", class: "btn btn-primary", id: "submit-name" %>
+  </div>
+<% end %>
+
+<%= javascript_tag do %>
+  function upload_image() {
+    document.getElementById("post_picture").click();
+    event.preventDefault();
+  }
+
+  $(document).ready(function(){
+    $("#submit-name").attr("disabled", "true");
+    $("#post_message").change(function(){
+        if ($(this).val().length > 0) {
+            $("#submit-name").removeAttr("disabled");
+        }
+    });
+});
+<% end %>

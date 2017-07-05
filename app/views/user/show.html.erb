@@ -1,0 +1,56 @@
+<div class="col-md-9 col-md-offset-1">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body user-profile">
+        <%= image_tag @user.avatar, size: "300x300" %>
+        <div class="user_info">
+          <h2 class="user_name">
+            <%=  @user.full_name %>
+          </h2>
+          <table class="table table-condensed" width="500">
+            <tr>
+              <td>Email</td>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <td>Age</td>
+              <td><%= @user.age %></td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td>
+                <% if @user.address %>
+                  <%= @user.address.slice(0,16)+"..." %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>Latitude</td>
+              <td><%= @user.latitude %></td>
+            </tr>
+            <tr>
+              <td>Latitude</td>
+              <td><%= @user.longitude %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <% if @user != current_user %>
+      <div class="wrapper">
+        <%= form_tag toggle_friendship_user_path(current_user), method: :post  do %>
+          <input type="hidden" name="friend_id" <%= "value=#{@user.id}" %> >
+            <% if(current_user.is_friend?(@user)) %>
+              <%= submit_tag "Following", class: "btn btn-primary", id: "follow_button" %>
+            <% else %>
+              <%= submit_tag "Not Following", class: "btn btn-primary", id: "follow_button" %>
+            <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <%= render 'shared/posts_list', posts: @user.posts %>
+  </div>
+</div>

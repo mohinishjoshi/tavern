@@ -1,0 +1,155 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar-brand {
+     color: #FFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+     color: #FFF;
+}
+
+#post_picture {
+  display: none;
+}
+
+#feed {
+  margin: 0px;
+  padding: 0px;
+}
+
+#feed li {
+  list-style: none;
+  padding: 10px 0px;
+  margin: 0px;
+  background-color: #fff;
+  border-bottom: 1px dashed #D2DADA;
+}
+
+#feed li:hover {
+  background-color: #F7F7F7;
+}
+
+.options {
+  display: none;
+}
+
+#feed li:hover div.options {
+  display:block;
+  float: right;
+  padding-right: 10px;
+}
+
+#feed li.first {
+  border-top: 1px dashed #D2DADA;
+}
+
+#feed li img {
+  float: left;
+  padding-left: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#feed li div.post_message_container {
+  float: left;
+  margin-left: 10px;
+}
+
+#feed li div.post_message_container a{
+  color: #2276bb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#feed li div.post_message_container div.time_ago{
+  color: #9C9C9C;
+  font-size: 90%;
+  padding-top: 5px;
+}
+
+body {
+  font-family: "Lucida Grande", sans-serif;
+  font-size: 1.4em;
+  color: #333333;
+}
+
+.user-profile img {
+  float: left;
+}
+
+.user_name {
+  font-size: 2.5em;
+  color: #2276bb;
+  padding-left: 10px;
+}
+
+.user_info {
+  color: #2276bb;
+  padding-left: 10px;
+  float: left;
+}
+
+body {
+  background: url('bg.jpg');
+  display: compact;
+}
+
+.wrapper {
+    text-align: right;
+    padding-bottom: 20px;
+    padding-right: 50px;
+}
+
+.wrapper button {
+    position: absolute;
+}
+
+
+
+.container { margin-top: 20px; }
+.mb20 { margin-bottom: 20px; }
+
+hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
+hgroup h1 { font: 500 normal 1.625em "Lucida Grande", sans-serif; color: #2a3644; margin-top: 0; line-height: 1.15; }
+hgroup h2.lead { font: normal normal 1.125em "Lucida Grande", sans-serif; color: #2a3644; margin: 0; padding-bottom: 10px; }
+
+.search-result .thumbnail { border-radius: 0 !important; }
+.search-result:first-child { margin-top: 0 !important; }
+.search-result { margin-top: 20px; }
+.search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
+.search-result ul { padding-left: 0 !important; list-style: none;  }
+.search-result ul li { font: 400 normal .85em ""Lucida Grande", sans-serif;  line-height: 30px; }
+.search-result ul li i { padding-right: 5px; }
+.search-result .col-md-7 { position: relative; }
+.search-result h3 { font: 500 normal 1.375em "Lucida Grande", sans-serif; margin-top: 0 !important; margin-bottom: 10px !important; }
+.search-result h3 > a, .search-result i { color: #248dc1 !important; }
+.search-result p { font: normal normal 1.125em ""Lucida Grande", sans-serif; }
+.search-result div.plus { position: absolute; right: 0; top: 126px; }
+.search-result div.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
+.search-result div.plus button:hover { background-color: #414141; }
+.search-result div.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
